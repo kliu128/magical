@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+llama-cpp-python = "*"
+replicate = "*"
+openai = "*"
+twilio = "*"
+modal-client = "*"
+sqlitedict = "*"
+pyyaml = "*"
+python-dotenv = "*"
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.8"
