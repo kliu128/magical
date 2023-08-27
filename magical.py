@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 import random
 import openai
 from twilio.rest import Client
@@ -76,11 +75,12 @@ This is a document of 1000 creative, unique, and amazing 1-line magical realism 
 """.strip()
 
     cmpl = openai.Completion.create(
-        engine="davinci",
+        engine="davinci-002",
         prompt=prompt,
         temperature=1,
         max_tokens=100,
         stop=["\n", "57."],
+        best_of=3,
         n=1
     )
 
@@ -116,10 +116,6 @@ def send_text(text: str):
     secret=modal.Secret.from_dotenv()
 )
 def send_magic(dry_run: bool = False):
-    if random.random() < 0.4:
-        print("Not sending magic today")
-        return
-
     print("Making magic...")
     text = create_magic()
     print("Got text: ", text)
